@@ -1,0 +1,116 @@
+body {
+    opacity: 1;
+    transition: 1s opacity;
+    font-family : 'Manrope', sans-serif !important;
+    color: white !important;
+    background-color: rgb(0, 0, 0) !important;
+}
+
+body.fade{
+    opacity: 0;
+    transition: none;
+}
+
+.sideNav{
+    margin-left: 0.5rem;
+    display: block;
+    width: 0;
+    z-index: 1;
+    position: fixed;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.sideNav a{
+    margin: 0.5rem 0;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 1px solid white;
+    vertical-align: middle;
+    background: transparent;
+    transition: 0.25s;
+}
+
+.sideNav p{
+    display: none;
+    overflow:hidden;
+    white-space: nowrap;
+    margin-top: -0.05rem;
+    margin-left: 1.5rem;
+    float:left;
+    color: white;
+    text-align: left;
+}
+
+.mainBox{
+    width: 100%;
+    height: 100vh;
+}
+
+#title{
+    background-color: rgb(4, 4, 31) !important;
+}
+
+#titleContent{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    width: 80%;
+}
+
+#titleContent img{
+    max-width : 300px;
+    max-height: 300px;
+    border-radius: 50%;
+}
+
+.cursor{
+    display: inline-block;
+    width: 1px;
+    background-color: white;
+    animation: blink 1s infinite;
+}
+
+.cursor.typing{
+    animation: none;
+}
+
+@keyframes blink{
+    0% { background-color: white;}
+    49% { background-color: white;}
+    50% { background-color: transparent;}
+    99% { background-color: transparent;}
+    100% {background-color: white;}
+}
+
+#contactInfo{
+    text-align: center;
+    padding: 2rem;
+}
+
+footer{
+    padding: 16px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 425px){
+    .sideNav{
+        visibility: hidden;
+    }
+    #titleContent h1{
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 320px){
+    #titleContent img{
+        width: 100%;
+        height: auto;
+    }
+}
