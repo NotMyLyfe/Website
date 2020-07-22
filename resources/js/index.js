@@ -1,6 +1,8 @@
 const typedTextSpan = document.getElementById('wordSelector');
 const cursorSpan = document.querySelector('.cursor');
 
+const downButton = document.querySelector('.downButton');
+
 const finishSentence = ["Gordon Lin!", "a student!", "a programmer!", "a musician!"];
 const typingDelay = 150;
 const erasingDelay = 50;
@@ -55,15 +57,21 @@ $(document).ready(function() {
     });
     $(".sideNav a").hover(function(){
         $(this).css({background: 'white', transition: "0.5s"});
-        $(".sideNav p").animate({width: 'toggle'}, 500);
+        $(".sideNav p").animate({width: 'toggle'}, 250);
     }, function(){
         if (!$(this).hasClass("visibleSection")) $(this).css({background: 'transparent', transition: "0.5s"});
-        $(".sideNav p").animate({width: 'toggle'}, 500);
+        $(".sideNav p").animate({width: 'toggle'}, 250);
     });
     $('section').each(function () {
         if($(this).position().top <= $(document).scrollTop() + $(window).height() / 2&& ($(this).position().top + $(this).outerHeight()) > $(document).scrollTop() + $(window).height() / 2 ) {
             $(".sideNav a[href='#" + $(this).attr('id') +"']").css({background: 'white', transition: "0.5s"});
             $(".sideNav a[href='#" + $(this).attr('id') +"']").addClass("visibleSection");
+            if ($(this).attr('id') != 'title' && !downButton.classList.contains('noDownButtonMove')){
+                downButton.classList.add('noDownButtonMove');
+            }
+            else if($(this).attr('id') == 'title' && downButton.classList.contains('noDownButtonMove')){
+                downButton.classList.remove('noDownButtonMove');
+            }
         }
     });
 });
@@ -73,6 +81,12 @@ $(document).scroll(function () {
         if($(this).position().top <= $(document).scrollTop() + $(window).height() / 2&& ($(this).position().top + $(this).outerHeight()) > $(document).scrollTop() + $(window).height() / 2 ) {
             $(".sideNav a[href='#" + $(this).attr('id') +"']").css({background: 'white', transition: "0.5s"});
             $(".sideNav a[href='#" + $(this).attr('id') +"']").addClass("visibleSection");
+            if ($(this).attr('id') != 'title' && !downButton.classList.contains('noDownButtonMove')){
+                downButton.classList.add('noDownButtonMove');
+            }
+            else if($(this).attr('id') == 'title' && downButton.classList.contains('noDownButtonMove')){
+                downButton.classList.remove('noDownButtonMove');
+            }
         }
         else if($(".sideNav a[href='#" + $(this).attr('id') +"']").hasClass("visibleSection")){
             $(".sideNav a[href='#" + $(this).attr('id') +"']").css({background: 'transparent', transition: "0.5s"});
