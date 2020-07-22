@@ -7,32 +7,55 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <meta name="description" content="Hello! I'm Gordon Lin, a student, a programmer, and a musician!">
         <title>Gordon Lin</title>
-        
+
         <link rel="stylesheet" href="./resources/css/index.css" type="text/css">
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/0e9d5eb51f.js" crossorigin="anonymous"></script>
     </head>
     <body class="fade">
         <div class="sideNav">
-            <a href="#title"><p>Title</p></a>
-            <a href="#contact"><p>Contact</p></a>
+            <div class="navItem">
+                <p>Title</p>
+                <a href="#title"></a>
+            </div>
+            <div class="navItem">
+                <p>About Me</p>
+                <a href="#aboutMe"></a>
+            </div>
+            <div class="navItem">
+                <p>Projects</p>
+                <a href="#projects"></a>
+            </div>
+            <div class="navItem">
+                <p>Contact</p>
+                <a href="#contact"></a>
+            </div>
         </div>
         <section id="title" class="mainBox">
             <div id="titleContent">
                 <img src="./resources/imgs/mainImg.JPG">
-                <h1>Hello, I'm 
+                <h1>Hello! I'm 
                     <span id="wordSelector"></span>
                     <span class="cursor">&nbsp;</span>
                 </h1>
             </div>
+            <div class="downButton">
+                <a href="#aboutMe"><i class="fas fa-angle-down"></i></a>
+            </div>
+        </section>
+        <section id="aboutMe">
+            <h1>About Me</h1>
+            
+        </section>
+        <section id="projects">
+            <h1>Projects</h1>
         </section>
         <section id="contact">
-            <div id="contactInfo">
-                <h1>Contact</h1>
-                <a href="mailto:contact@gordonlin.ca"><p>contact@gordonlin.ca</p></a>
-            </div>
+            <h1>Contact</h1>
+            <a href="mailto:contact@gordonlin.ca"><i class="far fa-envelope"></i><p>contact@gordonlin.ca</p></a>
         </section>
         <footer>
             <p>&#x2615; Powered by Coffee, Iced Tea, and Boba</p>

@@ -11,19 +11,31 @@ body.fade{
     transition: none;
 }
 
+section{
+    padding: 2rem;
+}
+
+section h1{
+    text-align: center;
+}
+
 .sideNav{
-    margin-left: 0.5rem;
+    margin-right: 2rem;
     display: block;
     width: 0;
     z-index: 1;
     position: fixed;
     top: 50%;
+    right: 0%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 
-.sideNav a{
-    margin: 0.5rem 0;
+.navItem{
+    margin: 1rem auto;
+}
+
+.navItem a{
     display: inline-block;
     width: 1.5rem;
     height: 1.5rem;
@@ -34,18 +46,19 @@ body.fade{
     transition: 0.25s;
 }
 
-.sideNav p{
+.navItem p{
+    margin-top: 0.05rem;
+    margin-right: 0.1rem;
     display: none;
     overflow:hidden;
     white-space: nowrap;
-    margin-top: -0.05rem;
-    margin-left: 1.5rem;
-    float:left;
+    float:right;
     color: white;
     text-align: left;
 }
 
 .mainBox{
+    padding: 0 0;
     width: 100%;
     height: 100vh;
 }
@@ -70,6 +83,32 @@ body.fade{
     border-radius: 50%;
 }
 
+.downButton{
+    left: 0;
+    line-height: 200px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 95%;
+    width: 100%;
+    animation: downButtonMove 1s infinite;
+}
+
+.downButton i{
+    color: white;
+    font-size: 3rem;
+}
+
+.noDownButtonMove{
+    animation: none;
+}
+
+@keyframes downButtonMove{
+    0% { top: 95%;}
+    50% {top: 92%; }
+    100% {top: 95%; }
+}
+
 .cursor{
     display: inline-block;
     width: 1px;
@@ -89,9 +128,24 @@ body.fade{
     100% {background-color: white;}
 }
 
-#contactInfo{
+#aboutMe{
+}
+
+#aboutMe h1{
+}
+
+#contact{
     text-align: center;
-    padding: 2rem;
+}
+
+#contact a{
+    color: white;
+    display: inline-block;
+}
+
+#contact p{
+    float: right;
+    margin-left: 0.5rem;
 }
 
 footer{
