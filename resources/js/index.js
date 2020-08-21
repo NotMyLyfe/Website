@@ -63,12 +63,15 @@ $(document).ready(function() {
             });
         }
     });
+    $(".sideNav").hover(function(event){
+        $(".navItem p").filter(':not(:animated)').animate({width: 'toggle'}, 250);
+    }, function(){
+        $(".navItem p").filter(':not(:animated)').animate({width: 'toggle'}, 250);
+    });
     $(".navItem a").hover(function(){
         $(this).css({background: 'white', transition: "0.5s"});
-        $(".navItem p").animate({width: 'toggle'}, 250);
     }, function(){
         if (!$(this).hasClass("visibleSection")) $(this).css({background: 'transparent', transition: "0.5s"});
-        $(".navItem p").animate({width: 'toggle'}, 250);
     });
     $('section').each(function () {
         if($(this).position().top <= $(document).scrollTop() + $(window).height() / 2&& ($(this).position().top + $(this).outerHeight()) > $(document).scrollTop() + $(window).height() / 2 ) {

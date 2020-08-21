@@ -21,19 +21,19 @@ section h1{
 }
 
 .sideNav{
-    margin-right: 2rem;
+    margin-left: 1rem;
     display: block;
-    width: 0;
+    width: auto;
+    height: auto;
     z-index: 1;
     position: fixed;
     top: 50%;
-    right: 0%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 
 .navItem{
-    margin: 1rem auto;
+    margin: 0.5rem auto;
 }
 
 .navItem a{
@@ -42,18 +42,18 @@ section h1{
     height: 1.5rem;
     border-radius: 50%;
     border: 1px solid white;
-    vertical-align: middle;
     background: transparent;
     transition: 0.25s;
 }
 
 .navItem p{
+    position: absolute;
     margin-top: 0.05rem;
-    margin-right: 0.1rem;
+    margin-left: 2rem;
     display: none;
     overflow:hidden;
     white-space: nowrap;
-    float:right;
+    float:left;
     color: white;
     text-align: left;
 }
