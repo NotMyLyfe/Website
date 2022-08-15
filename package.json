@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --config webpack/webpack.config.js --env env=dev",
-    "build": "webpack --config webpack/webpack.config.js --env env=prod"
+    "build": "webpack --config webpack/webpack.config.js --env env=prod",
+    "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\" --no-ignore",
+    "lint:fix": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\" --fix",
+    "lint:quiet": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\" --quiet",
+    "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "repository": {
     "type": "git",
@@ -19,8 +23,14 @@
   },
   "homepage": "https://github.com/NotMyLyfe/Website#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.2",
+    "@fortawesome/free-solid-svg-icons": "^6.1.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "bootstrap": "^5.2.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-bootstrap": "^2.5.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.54.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
@@ -33,13 +43,23 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "html-webpack-plugin": "^5.5.0",
     "react-refresh": "^0.14.0",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
+    "typescript": "^4.7.4",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.10.0",

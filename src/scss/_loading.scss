@@ -1,0 +1,27 @@
+@import './variables';
+
+:root{
+    --loading-circle-size: 10rem;
+}
+
+.loading{
+    z-index: 1000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    *{
+        color: white;
+    }
+    .circle{
+        border-radius: 50%;
+        width: var(--loading-circle-size);
+        height: var(--loading-circle-size);
+        background-color: white;
+    }
+}
