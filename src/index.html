@@ -1,16 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <noscript>
-      Heyo! Thanks for visiting my site! To view it in it's full glory, you need
-      to enable JavaScript!
-    </noscript>
-    <div id="root"></div>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gordon Lin</title>
+        <style>
+            #loader {
+                position: fixed;
+                background-color: black;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+                transition: all ease-in-out 2s;
+            }
+            .dots {
+                width: 10rem;
+                height: 2rem;
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .dot-container {
+                display: flex;
+                width: 2rem;
+                height: 2rem;
+                justify-content: center;
+                align-items: center;
+            }
+            .dot {
+                display: block;
+                border-radius: 50%;
+                background-color: white;
+                animation: loading 1.5s ease-in-out infinite normal both running;
+            }
+            .dot-container:nth-child(2) .dot {
+                animation-delay: 0.25s;
+            }
+            .dot-container:nth-child(3) .dot {
+                animation-delay: 0.5s;
+            }
+            @keyframes loading {
+                15% {
+                    width: 0;
+                    height: 0;
+                    opacity: 0;
+                }
+                50% {
+                    width: 2rem;
+                    height: 2rem;
+                    opacity: 1;
+                }
+                85% {
+                    width: 0;
+                    height: 0;
+                    opacity: 0;
+                }
+            }
+            .loaded {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        </style>
+        <noscript>
+            <style>
+                #loader {
+                    display: none;
+                }
+            </style>
+        </noscript>
+    </head>
+    <body>
+        <noscript>
+            Heyo! Thanks for visiting my site! To view it in it's full glory, you need to enable JavaScript!
+        </noscript>
+        <div id="root"></div>
+        <span id="loader">
+            <span class="dots">
+                <span class="dot-container">
+                    <span class="dot"></span>
+                </span>
+                <span class="dot-container">
+                    <span class="dot"></span>
+                </span>
+                <span class="dot-container">
+                    <span class="dot"></span>
+                </span>
+            </span>
+        </span>
+    </body>
 </html>

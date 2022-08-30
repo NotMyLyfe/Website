@@ -1,0 +1,35 @@
+@import './variables';
+
+nav{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    z-index: 1;
+
+    a::before{
+        content: "";
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: none;
+        display: block;
+        margin-right: 0.5rem;
+        border: solid white 2px;
+        border-radius: 50%;
+    }
+
+    a{
+        color: white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-decoration: none;
+
+        h5{
+            margin-bottom: 0;
+        
+        }
+    }
+}
