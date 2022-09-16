@@ -1,5 +1,9 @@
 @import './variables';
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: $font-stack;
     margin: 0;

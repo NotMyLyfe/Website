@@ -1,48 +1,57 @@
-import React from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import './scss/_global.scss';
+import intersectionObserver from './helpers/intersectionObserver';
 import * as Section from './components/sections';
 import Nav from './components/Nav';
 import sectionList from './interfaces/sectionList';
 
-class App extends React.Component<unknown, { loading: boolean }> {
-    private sections: Array<sectionList>;
-    constructor(props: unknown) {
-        super(props);
-        this.state = {
-            loading: true,
-        };
-        this.sections = [
-            {
-                id: 'hero',
-                name: 'Welcome',
-                component: <Section.Hero />,
-            },
-        ];
-    }
+const sectionIntersectionObserverOptions : IntersectionObserverInit = {
+    rootMargin: "-30%"
+};
 
-    componentDidMount() {
-        setTimeout(() => {
-            const loader = document.getElementById('loader');
-            if (loader) {
-                this.setState({ loading: false });
-                loader.classList.add('loaded');
-                setTimeout(() => {
-                    loader.remove();
-                }, 3000);
-            }
-        }, 2000);
-    }
+function App() : ReactElement | null{
+    const sections : Array<sectionList> = [
+        {
+            id: 'hero',
+            name: 'Welcome',
+            component: <Section.Hero />,
+            ...intersectionObserver(sectionIntersectionObserverOptions)
+        },
+    ];
 
-    render(): React.ReactNode {
-        if (this.state.loading) {
-            return null;
+    const [loading, setLoading] = useState(true);
+    const [curSection, setCurSection] = useState(-1);
+
+    useEffect(() => {
+        if(loading){
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                if (loader) {
+                    setLoading(false);
+                    loader.classList.add('loaded');
+                    setTimeout(() => {
+                        loader.remove();
+                    }, 3000);
+                }
+            }, 2000);
         }
+
+        for(let i = sections.length - 1; i >= 0; i--){
+            if(sections[i].visible){
+                setCurSection(i);
+                break;
+            }
+        }
+    });
+
+    if(loading) return null;
+    else{
         return (
             <>
-                <Nav sections={this.sections}/>
-                {this.sections.map((sectionObj) => {
+                <Nav sections={sections} curSection={curSection}/>
+                {sections.map((sectionObj) => {
                     return (
-                        <section id={sectionObj.id} key={sectionObj.id}>
+                        <section id={sectionObj.id} key={sectionObj.id} ref={sectionObj.ref}>
                             {sectionObj.component}
                         </section>
                     );

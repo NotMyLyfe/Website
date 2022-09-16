@@ -9,27 +9,52 @@ nav{
     transform: translateY(-50%);
     z-index: 1;
 
-    a::before{
-        content: "";
-        width: 1.5rem;
-        height: 1.5rem;
-        background-color: none;
-        display: block;
-        margin-right: 0.5rem;
-        border: solid white 2px;
-        border-radius: 50%;
-    }
-
     a{
         color: white;
         display: flex;
         flex-direction: row;
         align-items: center;
         text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 0.5rem 0.5rem;
+        border-radius: 1rem;
+        transition: all 0.5s ease-in-out;
+        width: fit-content;
+
+        &:not(:first-of-type){
+            margin-top: 0.25rem;
+        }
+
+        &:not(:last-of-type){
+            margin-bottom: 0.25rem;
+        }
+
+        &::before{
+            content: "";
+            min-width: 1.5rem;
+            min-height: 1.5rem;
+            background-color: none;
+            display: block;
+            margin-right: 0.5rem;
+            border: solid white 2px;
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        &.active::before{
+            background-color: white;
+        }
 
         h5{
             margin-bottom: 0;
-        
+            box-sizing: border-box;
+            overflow: hidden;
+            white-space: nowrap;
+            border-radius: 0.5rem;
+        }
+
+        &:hover, &:active{
+            color: white;
         }
     }
 }
