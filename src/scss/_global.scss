@@ -7,4 +7,15 @@ html{
 body{
     font-family: $font-stack;
     margin: 0;
+
+    section{
+        width: 100vw;
+    }
 }
+
+@media screen and (min-width: 576px) {
+    section > div{
+        padding: 5rem;
+    }
+}
+

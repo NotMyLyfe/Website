@@ -1,29 +1,41 @@
-import React, { ReactElement, useEffect, useState } from 'react';
+import React from 'react';
 import './scss/_global.scss';
-import intersectionObserver from './helpers/intersectionObserver';
+import UseIntersectionObserver from './helpers/UseIntersectionObserver';
 import * as Section from './components/sections';
 import Nav from './components/Nav';
+import Footer from './components/Footer';
 import sectionList from './interfaces/sectionList';
 
-const sectionIntersectionObserverOptions : IntersectionObserverInit = {
-    rootMargin: "-30%"
+const sectionIntersectionObserverOptions: IntersectionObserverInit = {
+    root: null,
+    rootMargin: '-15% 0px',
 };
 
-function App() : ReactElement | null{
-    const sections : Array<sectionList> = [
+function App(): React.ReactElement | null {
+    const sections: Array<sectionList> = [
         {
             id: 'hero',
             name: 'Welcome',
-            component: <Section.Hero />,
-            ...intersectionObserver(sectionIntersectionObserverOptions)
+            component: (visible) => {
+                return <Section.Hero visible={visible} />;
+            },
+            ...UseIntersectionObserver(sectionIntersectionObserverOptions),
+        },
+        {
+            id: 'about',
+            name: 'About Me',
+            component: (visible) => {
+                return <Section.About visible={visible} />;
+            },
+            ...UseIntersectionObserver(sectionIntersectionObserverOptions),
         },
     ];
 
-    const [loading, setLoading] = useState(true);
-    const [curSection, setCurSection] = useState(-1);
+    const [loading, setLoading] = React.useState(true);
+    const [curSection, setCurSection] = React.useState(-1);
 
-    useEffect(() => {
-        if(loading){
+    React.useEffect(() => {
+        if (loading) {
             setTimeout(() => {
                 const loader = document.getElementById('loader');
                 if (loader) {
@@ -36,29 +48,27 @@ function App() : ReactElement | null{
             }, 2000);
         }
 
-        for(let i = sections.length - 1; i >= 0; i--){
-            if(sections[i].visible){
+        for (let i = sections.length - 1; i >= 0; i--) {
+            if (sections[i].visible) {
                 setCurSection(i);
                 break;
             }
         }
-    });
+    }, [loading, sections]);
 
-    if(loading) return null;
-    else{
-        return (
-            <>
-                <Nav sections={sections} curSection={curSection}/>
-                {sections.map((sectionObj) => {
-                    return (
-                        <section id={sectionObj.id} key={sectionObj.id} ref={sectionObj.ref}>
-                            {sectionObj.component}
-                        </section>
-                    );
-                })}
-            </>
-        );
-    }
+    return (
+        <>
+            <Nav sections={sections} curSection={curSection} />
+            {sections.map((sectionObj) => {
+                return (
+                    <section id={sectionObj.id} key={sectionObj.id} ref={sectionObj.ref}>
+                        {sectionObj.component(sectionObj.visible)}
+                    </section>
+                );
+            })}
+            <Footer />
+        </>
+    );
 }
 
 export default App;
