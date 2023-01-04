@@ -4,7 +4,7 @@ import '../../scss/hero.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-function Hero({ visible }: sectionProps): React.ReactElement {
+function Hero(props : sectionProps): React.ReactElement {
     const hero_text = [
         'Gordon Lin!',
         'a student!',
@@ -57,13 +57,13 @@ function Hero({ visible }: sectionProps): React.ReactElement {
     }
 
     React.useEffect(() => {
-        if(visible)
+        if(props.visible)
             typing();
     });
 
     React.useEffect(() => {
-        setArrowMoving(visible);
-    }, [visible]);
+        setArrowMoving(props.visible);
+    }, [props.visible]);
 
     return (
         <div className="hero">

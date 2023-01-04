@@ -1,35 +1,34 @@
 @import './variables';
 
-.hero{
+.hero {
     height: 100vh;
     background-color: #04041F;
     display: flex;
     flex-direction: column;
     color: white;
-    
-    .hero-text{
+
+    .hero-text {
         margin-top: auto;
         padding-bottom: 10vh;
-        padding-left: 3vw;
 
-        h1{
+        h1 {
             font-size: 4rem;
         }
 
-        h2{
+        h2 {
             font-size: 3rem;
         }
 
-        span::after{
+        span::after {
             content: "|";
         }
 
-        .waiting::after{
+        .waiting::after {
             animation: blink 1s infinite;
         }
     }
 
-    .hero-down{
+    .hero-down {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -40,32 +39,36 @@
         transition: all 0.5s ease-in-out;
         cursor: pointer;
 
-        .arrow-move{
+        .arrow-move {
             animation: arrow 1s infinite;
         }
     }
 }
 
-@keyframes blink{
-    0%{
+@keyframes blink {
+    0% {
         opacity: 0;
     }
-    50%{
+
+    50% {
         opacity: 1;
     }
-    100%{
+
+    100% {
         opacity: 0;
     }
 }
 
-@keyframes arrow{
-    0%{
+@keyframes arrow {
+    0% {
         transform: translateY(0);
     }
-    50%{
+
+    50% {
         transform: translateY(10px);
     }
-    100%{
+
+    100% {
         transform: translateY(0);
     }
 }
