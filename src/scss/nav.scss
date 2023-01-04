@@ -1,11 +1,9 @@
 @import './variables';
 
-nav{
+nav {
     display: none;
-}
 
-@media screen and (min-width: 576px) {
-    nav{
+    @include media-breakpoint-up(sm) {
         position: fixed;
         display: flex;
         flex-direction: column;
@@ -14,7 +12,7 @@ nav{
         transform: translateY(-50%);
         z-index: 1;
 
-        a{
+        a {
             color: white;
             display: flex;
             flex-direction: row;
@@ -27,15 +25,15 @@ nav{
             width: fit-content;
             cursor: pointer;
 
-            &:not(:first-of-type){
+            &:not(:first-of-type) {
                 margin-top: 0.25rem;
             }
 
-            &:not(:last-of-type){
+            &:not(:last-of-type) {
                 margin-bottom: 0.25rem;
             }
 
-            &::before{
+            &::before {
                 content: "";
                 min-width: 1.5rem;
                 min-height: 1.5rem;
@@ -47,11 +45,11 @@ nav{
                 transition: all 0.3s ease-in-out;
             }
 
-            &.active::before{
+            &.active::before {
                 background-color: white;
             }
 
-            h5{
+            h5 {
                 margin-bottom: 0;
                 box-sizing: border-box;
                 overflow: hidden;
@@ -59,7 +57,8 @@ nav{
                 border-radius: 0.5rem;
             }
 
-            &:hover, &:active{
+            &:hover,
+            &:active {
                 color: white;
             }
         }
