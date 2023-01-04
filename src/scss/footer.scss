@@ -1,18 +1,69 @@
 @import './variables';
 
-footer{
-    display: flexbox;
-    flex-direction: column;
+footer {
+    display: flex;
+    flex-direction: row;
     background-color: $primary-color;
     width: 100vw;
     padding: 2rem;
+    align-items: center;
+    color: white;
 
-    .copyright{
-        flex-grow: 1;
-        
+    >div {
+        padding: 0 2rem;
+
+        @include media-breakpoint-down(md) {
+            padding: 0 1rem;
+        }
+
+        flex-basis: 50%;
     }
 
-    @media screen and (min-width: 576px) {
-        flex-direction: row;
-    };
+    .copyright {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        :nth-child(2) {
+            margin: 0;
+        }
+
+        @include media-breakpoint-up(sm) {
+            text-align: right;
+        }
+
+        @include media-breakpoint-down(sm) {
+            :first-child {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+
+    .socials {
+        display: flex;
+        flex-flow: row wrap;
+
+        >* {
+            margin: 0.1rem 0.5rem;
+        }
+
+        :first-child() {
+            margin-left: 0;
+        }
+
+        :last-child() {
+            margin-right: 0;
+        }
+
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 1rem;
+            justify-content: center;
+        }
+
+    }
+
+    @include media-breakpoint-down(sm) {
+        flex-direction: column;
+        text-align: center;
+    }
 }
