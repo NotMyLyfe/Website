@@ -11,9 +11,7 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\" --no-ignore",
     "lint:fix": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\" --fix",
     "lint:quiet": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\" --quiet",
-    "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "repository": {
     "type": "git",
@@ -33,7 +31,6 @@
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "bootstrap": "^5.2.0",
-    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
