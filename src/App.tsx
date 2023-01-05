@@ -30,31 +30,17 @@ function App(): React.ReactElement | null {
             ...UseIntersectionObserver(sectionIntersectionObserverOptions),
         },
     ];
-
-    const [loading, setLoading] = React.useState(true);
+    
     const [curSection, setCurSection] = React.useState(-1);
 
     React.useEffect(() => {
-        if (loading) {
-            setTimeout(() => {
-                const loader = document.getElementById('loader');
-                if (loader) {
-                    setLoading(false);
-                    loader.classList.add('loaded');
-                    setTimeout(() => {
-                        loader.remove();
-                    }, 3000);
-                }
-            }, 2000);
-        }
-
         for (let i = sections.length - 1; i >= 0; i--) {
             if (sections[i].visible) {
                 setCurSection(i);
                 break;
             }
         }
-    }, [loading, sections]);
+    }, [sections]);
 
     return (
         <>
