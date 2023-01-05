@@ -1,0 +1,45 @@
+name: React GH-Pages CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present
+    - name: Deploy
+      run: |
+        git config --global user.name $user_name
+        git config --global user.email $user_email
+        git remote set-url origin https://${github_token}@github.com/${repository}
+        npm run deploy
+      env:
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        github_token: ${{ secrets.ACTION_DEPLOY_ACCESS_TOKEN }}
+        repository: ${{ github.repository }}
+    - name: Change CNAME
+      run: |
+        git pull
+        git checkout gh-pages
+        touch CNAME
+        echo > 'gordonlin.ca'
+        git add .
+        git commit -m "Changed CNAME"
+        git push origin gh-pages
