@@ -35,6 +35,7 @@ function Nav({ sections, curSection }: nav): React.ReactElement {
 
     const scroll = (id: string) => {
         const element = document.getElementById(id);
+        console.log(element);
         if (element)
             window.scrollTo({
                 top: element.offsetTop,
@@ -46,7 +47,7 @@ function Nav({ sections, curSection }: nav): React.ReactElement {
         <nav ref={navRef} onMouseEnter={grow} onMouseLeave={shrink}>
             {sections.map((section, index) => {
                 return (
-                    <a
+                    <button
                         className={`${visible ? 'visible' : ''} ${
                             curSelection === index || curSection === index ? 'active' : ''
                         }`}
@@ -63,7 +64,7 @@ function Nav({ sections, curSection }: nav): React.ReactElement {
                         key={`${section.id}Nav`}
                     >
                         <h5>{section.name}</h5>
-                    </a>
+                    </button>
                 );
             })}
         </nav>
