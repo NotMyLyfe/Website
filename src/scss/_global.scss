@@ -2,15 +2,11 @@
 
 html {
     scroll-behavior: smooth;
-    overflow: hidden;
-    height: 100%;
 }
 
 body {
     font-family: $font-stack;
     margin: 0;
-    overflow: auto;
-    height: 100%;
     background-color: $primary-color;
 
     section {
