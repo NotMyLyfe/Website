@@ -9,6 +9,7 @@ module.exports = {
     hot: true,
     compress: true,
     open: true,
+    allowedHosts: [".ngrok.io"]
   },
   plugins: [new ReactRefreshWebpackPlugin()],
 };
