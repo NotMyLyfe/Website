@@ -30,7 +30,7 @@ function App(): React.ReactElement | null {
             ...UseIntersectionObserver(sectionIntersectionObserverOptions),
         },
     ];
-    
+
     const [curSection, setCurSection] = React.useState(-1);
 
     React.useEffect(() => {

@@ -9,11 +9,7 @@ function Footer(): React.ReactElement {
     return (
         <footer>
             <div className="socials">
-                <SocialMediaLink
-                    link="https://github.com/NotMyLyfe"
-                    icon={faGithub as IconProp}
-                    text="NotMyLyfe"
-                />
+                <SocialMediaLink link="https://github.com/NotMyLyfe" icon={faGithub as IconProp} text="NotMyLyfe" />
                 <SocialMediaLink
                     link="https://www.linkedin.com/in/gordon-lin/"
                     icon={faLinkedin as IconProp}
@@ -26,8 +22,8 @@ function Footer(): React.ReactElement {
                 />
             </div>
             <div className="copyright">
-               <p>&#9749; Powered by Coffee, Iced Tea, and Boba</p>
-               <p>Copyright &copy; {new Date().getFullYear()} Gordon Lin</p>
+                <p>&#9749; Powered by Coffee, Iced Tea, and Boba</p>
+                <p>Copyright &copy; {new Date().getFullYear()} Gordon Lin</p>
             </div>
         </footer>
     );
