@@ -1,7 +1,11 @@
+// @ts-check
 const path = require('path');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+/**
+ * @type {import('webpack').Configuration}
+ */
 module.exports = {
     mode: 'development',
     devtool: 'cheap-module-source-map',
