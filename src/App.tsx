@@ -33,14 +33,12 @@ function App(): React.ReactElement | null {
 
     const [curSection, setCurSection] = React.useState(-1);
 
-    React.useEffect(() => {
-        for (let i = sections.length - 1; i >= 0; i--) {
-            if (sections[i].visible) {
-                setCurSection(i);
-                break;
-            }
+    sections.findLast((val, idx) => {
+        if (val.visible) {
+            if (curSection !== idx) setCurSection(idx);
+            return true;
         }
-    }, [sections]);
+    });
 
     return (
         <>

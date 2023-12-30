@@ -56,13 +56,10 @@ function Hero(props: sectionProps): React.ReactElement {
         }
     };
 
-    React.useEffect(() => {
-        if (props.visible) typing();
-    });
+    if (props.visible) typing();
 
-    React.useEffect(() => {
-        setArrowMoving(props.visible);
-    }, [props.visible]);
+    if (arrowMoving && !props.visible) setArrowMoving(false);
+    else if (!arrowMoving && props.visible) setArrowMoving(true);
 
     return (
         <div className="hero">
