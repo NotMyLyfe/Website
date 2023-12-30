@@ -11,7 +11,9 @@
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\" --no-ignore",
     "lint:fix": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\" --fix",
     "lint:quiet": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\" --quiet",
-    "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
+    "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "dev:analyze": "npm run dev -- --env.addons=bundleanalyzer",
+    "build:analyze": "npm run build -- --env.addons=bundleanalyzer"
   },
   "repository": {
     "type": "git",
@@ -34,7 +36,8 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.54.4"
+    "sass": "^1.54.4",
+    "webpack-bundle-analyzer": "^4.8.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
