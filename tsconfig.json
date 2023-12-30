@@ -16,7 +16,17 @@
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
         "allowJs": true,
-        "checkJs": true
+        "checkJs": true,
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["src/*"],
+            "@types/*": ["types/*"],
+            "@components/*": ["src/components/*"],
+            "@helpers/*": ["src/helpers/*"],
+            "@styles/*": ["src/scss/*"],
+            "@interfaces/*": ["src/interfaces/*"],
+            "@pics/*": ["src/pics/*"],
+        },
     },
     "include": ["src/**/*", "types/*"],
     "exclude": ["node_modules", "build"]

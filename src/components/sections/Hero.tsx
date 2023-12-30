@@ -1,10 +1,10 @@
 import React from 'react';
-import sectionProps from '../../interfaces/section_props';
-import '../../scss/hero.scss';
+import { Section } from '@/interfaces';
+import '@styles/hero.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-function Hero(props: sectionProps): React.ReactElement {
+function Hero(props: Section.SectionProps): React.ReactElement {
     const hero_text = [
         'Gordon Lin!',
         'a student!',

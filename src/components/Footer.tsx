@@ -1,5 +1,5 @@
 import React from 'react';
-import '../scss/footer.scss';
+import '@styles/footer.scss';
 import SocialMediaLink from './SocialMediaLink';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';

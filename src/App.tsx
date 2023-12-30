@@ -1,10 +1,9 @@
 import React from 'react';
-import './scss/_global.scss';
-import UseIntersectionObserver from './helpers/UseIntersectionObserver';
-import * as Section from './components/sections';
-import Nav from './components/Nav';
-import Footer from './components/Footer';
-import sectionList from './interfaces/sectionList';
+import '@styles/_global.scss';
+import UseIntersectionObserver from '@helpers/UseIntersectionObserver';
+import * as Sections from '@components/sections';
+import { Nav, Footer } from '@/components';
+import { Section } from '@/interfaces';
 
 const sectionIntersectionObserverOptions: IntersectionObserverInit = {
     root: null,
@@ -12,12 +11,12 @@ const sectionIntersectionObserverOptions: IntersectionObserverInit = {
 };
 
 function App(): React.ReactElement | null {
-    const sections: Array<sectionList> = [
+    const sections: Array<Section.SectionList> = [
         {
             id: 'hero',
             name: 'Welcome',
             component: (visible) => {
-                return <Section.Hero visible={visible} />;
+                return <Sections.Hero visible={visible} />;
             },
             ...UseIntersectionObserver(sectionIntersectionObserverOptions),
         },
@@ -25,7 +24,7 @@ function App(): React.ReactElement | null {
             id: 'about',
             name: 'About Me',
             component: (visible) => {
-                return <Section.About visible={visible} />;
+                return <Sections.About visible={visible} />;
             },
             ...UseIntersectionObserver(sectionIntersectionObserverOptions),
         },

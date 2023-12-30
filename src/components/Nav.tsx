@@ -1,6 +1,6 @@
 import React from 'react';
-import sectionList from '../interfaces/sectionList';
-import '../scss/nav.scss';
+import sectionList from '@interfaces/sectionList';
+import '@styles/nav.scss';
 
 interface nav {
     sections: Array<sectionList>;

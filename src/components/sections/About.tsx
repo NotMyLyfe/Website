@@ -1,8 +1,8 @@
 import React from 'react';
-import sectionProps from '../../interfaces/section_props';
-import '../../scss/about.scss';
+import { Section } from '@/interfaces';
+import '@styles/about.scss';
 
-function About(props: sectionProps): React.ReactElement {
+function About(props: Section.SectionProps): React.ReactElement {
     return (
         <div className="about">
             <div className="info">
