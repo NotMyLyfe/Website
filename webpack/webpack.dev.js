@@ -1,12 +1,8 @@
-// @ts-check
 const path = require('path');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-/**
- * @type {import('webpack').Configuration}
- */
-module.exports = {
+module.exports = (env) => ({
     mode: 'development',
     devtool: 'cheap-module-source-map',
     devServer: {
@@ -16,5 +12,5 @@ module.exports = {
         open: true,
         allowedHosts: ['.ngrok.io'],
     },
-    plugins: [new ReactRefreshWebpackPlugin(), new BundleAnalyzerPlugin()],
-};
+    plugins: [new ReactRefreshWebpackPlugin(), ...(env.analyze ? [new BundleAnalyzerPlugin()] : [])],
+});
