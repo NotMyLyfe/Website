@@ -53,7 +53,7 @@ function Hero(props: Section.SectionProps): React.ReactElement {
                     I&apos;m <span className={typingState}>{curText}</span>
                 </h2>
                 <p className="hero-bio">
-                    CS (Stat minor) @ UWaterloo &mdash; clarinetist, photographer, and avid gamer.
+                    CS (Stat minor) @ UWaterloo &mdash; photographer, avid gamer, and outdoor enthusiast.
                 </p>
             </div>
         </div>
