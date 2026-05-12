@@ -1,9 +1,6 @@
 import React from 'react';
 import { Section } from '@/interfaces';
 import '@styles/hero.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-
 function Hero(props: Section.SectionProps): React.ReactElement {
     const hero_text = [
         'Gordon Lin!',
@@ -18,16 +15,6 @@ function Hero(props: Section.SectionProps): React.ReactElement {
     const [index, setIndex] = React.useState(0);
     const [typingState, setTypingState] = React.useState(typingStates[0]);
     const [curText, setCurText] = React.useState('');
-    const [arrowMoving, setArrowMoving] = React.useState(true);
-
-    const scroll = (id: string) => {
-        const element = document.getElementById(id);
-        if (element)
-            window.scrollTo({
-                top: element.offsetTop,
-            });
-        return undefined;
-    };
 
     const typing = () => {
         if (typingState === 'typing') {
@@ -58,9 +45,6 @@ function Hero(props: Section.SectionProps): React.ReactElement {
 
     if (props.visible) typing();
 
-    if (arrowMoving && !props.visible) setArrowMoving(false);
-    else if (!arrowMoving && props.visible) setArrowMoving(true);
-
     return (
         <div className="hero">
             <div className="hero-text">
@@ -68,15 +52,9 @@ function Hero(props: Section.SectionProps): React.ReactElement {
                 <h2>
                     I&apos;m <span className={typingState}>{curText}</span>
                 </h2>
-            </div>
-            <div className="hero-down">
-                <FontAwesomeIcon
-                    onClick={() => {
-                        scroll('about');
-                    }}
-                    className={`${arrowMoving ? 'arrow-move' : ''}`}
-                    icon={faChevronDown}
-                />
+                <p className="hero-bio">
+                    CS (Stat minor) @ UWaterloo &mdash; clarinetist, photographer, and avid gamer.
+                </p>
             </div>
         </div>
     );

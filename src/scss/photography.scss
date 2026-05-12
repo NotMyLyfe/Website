@@ -1,0 +1,217 @@
+@import './variables';
+
+.photography {
+    background-color: $primary-color;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .photography-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+
+        @include media-breakpoint-up(lg) {
+            flex-direction: row;
+            align-items: stretch;
+            min-height: 75vh;
+            gap: 2rem;
+        }
+    }
+
+    // ── Photo panel (left on desktop, top on mobile) ──────────────────────
+    .photography-photo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+
+        @include media-breakpoint-up(lg) {
+            flex: 0 0 65%;
+        }
+
+        .photo-nav {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            padding: 0.4rem 0.75rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease-in-out;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+
+            &:hover, &:active {
+                background: rgba(255, 255, 255, 0.25);
+                color: white;
+            }
+        }
+
+        .photo-display {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+
+            @include media-breakpoint-up(lg) {
+                flex: 1;
+                aspect-ratio: unset;
+            }
+
+            .photo-img {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                opacity: 0;
+                transform: translateY(0);
+
+                &.active {
+                    opacity: 1;
+                }
+
+                &.exiting {
+                    opacity: 0;
+                }
+
+                &.exiting.down {
+                    transform: translateY(-20px);
+                }
+
+                &.exiting.up {
+                    transform: translateY(20px);
+                }
+            }
+
+            .photos-placeholder {
+                position: absolute;
+                inset: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+                border: 2px dashed rgba(255, 255, 255, 0.15);
+                border-radius: 1rem;
+                color: rgba(255, 255, 255, 0.35);
+
+                svg {
+                    font-size: 2.5rem;
+                }
+
+                p {
+                    font-size: 0.9rem;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    // ── Info panel (right on desktop, bottom on mobile) ───────────────────
+    .photography-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1.5rem;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        opacity: 1;
+        transform: translateX(0);
+
+        @include media-breakpoint-up(lg) {
+            flex: 1;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        &.exiting.right {
+            opacity: 0;
+            transform: translateX(-24px);
+        }
+
+        &.exiting.left {
+            opacity: 0;
+            transform: translateX(24px);
+        }
+
+        .event-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            h2 {
+                font-size: 2rem;
+                font-weight: 700;
+                margin: 0;
+
+                @include media-breakpoint-up(lg) {
+                    font-size: 2.5rem;
+                }
+            }
+
+            .event-date {
+                font-size: 0.875rem;
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            p {
+                font-size: 1rem;
+                color: rgba(255, 255, 255, 0.8);
+                line-height: 1.65;
+                margin: 0.5rem 0 0;
+            }
+
+            .event-gear {
+                font-size: 0.8rem;
+                color: rgba(255, 255, 255, 0.45);
+                font-style: italic;
+            }
+
+            .photo-counter {
+                font-size: 0.8rem;
+                color: rgba(255, 255, 255, 0.4);
+                margin-top: 0.5rem;
+            }
+        }
+
+        .event-nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            button {
+                background: rgba(255, 255, 255, 0.1);
+                border: none;
+                color: white;
+                padding: 0.5rem 0.5rem;
+                border-radius: 1rem;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1rem;
+                transition: all 0.5s ease-in-out;
+
+                &:hover, &:active {
+                    background: rgba(255, 255, 255, 0.25);
+                    color: white;
+                }
+            }
+
+            .event-counter {
+                font-size: 0.875rem;
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+    }
+}

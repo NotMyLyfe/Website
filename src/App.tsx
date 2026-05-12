@@ -21,10 +21,26 @@ function App(): React.ReactElement | null {
             ...UseIntersectionObserver(sectionIntersectionObserverOptions),
         },
         {
-            id: 'about',
-            name: 'About Me',
+            id: 'experience',
+            name: 'Experience',
             component: (visible) => {
-                return <Sections.About visible={visible} />;
+                return <Sections.Experience visible={visible} />;
+            },
+            ...UseIntersectionObserver(sectionIntersectionObserverOptions),
+        },
+        {
+            id: 'projects',
+            name: 'Projects',
+            component: (visible) => {
+                return <Sections.Projects visible={visible} />;
+            },
+            ...UseIntersectionObserver(sectionIntersectionObserverOptions),
+        },
+        {
+            id: 'photography',
+            name: 'Photography',
+            component: (visible) => {
+                return <Sections.Photography visible={visible} />;
             },
             ...UseIntersectionObserver(sectionIntersectionObserverOptions),
         },

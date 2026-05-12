@@ -1,0 +1,154 @@
+@import './variables';
+
+.experience {
+    background-color: $primary-color;
+    color: white;
+
+    .experience-group {
+        &:not(:last-child) {
+            margin-bottom: 2.5rem;
+        }
+
+        >h1 {
+            font-size: 2rem;
+            margin-bottom: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+    }
+
+    .experience-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .experience-card {
+        background-color: rgba(255, 255, 255, 0.07);
+        border-radius: 1.5rem;
+        padding: 1.25rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.11);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.75rem;
+
+            .experience-header-text {
+                flex: 1;
+                min-width: 0;
+
+                h3 {
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    margin: 0;
+                    overflow-wrap: break-word;
+                    word-break: break-word;
+                }
+
+                h4 {
+                    font-size: 0.9rem;
+                    font-weight: 400;
+                    margin: 0.15rem 0 0;
+                    color: rgba(255, 255, 255, 0.7);
+                }
+
+                .sub-roles {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.15rem;
+                    margin-top: 0.25rem;
+                }
+
+                .sub-role {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    font-size: 0.85rem;
+
+                    &::before {
+                        content: '';
+                        width: 0.35rem;
+                        height: 0.35rem;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.4);
+                        flex-shrink: 0;
+                    }
+
+                    .sub-role-title {
+                        color: rgba(255, 255, 255, 0.7);
+                        font-weight: 500;
+                    }
+
+                    .sub-role-dates {
+                        color: rgba(255, 255, 255, 0.4);
+                        font-size: 0.75rem;
+                    }
+                }
+            }
+
+            .experience-header-right {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 0.4rem;
+                flex-shrink: 0;
+
+                .experience-dates {
+                    font-size: 0.8rem;
+                    color: rgba(255, 255, 255, 0.5);
+                    white-space: nowrap;
+                }
+
+
+                .chevron {
+                    font-size: 0.75rem;
+                    color: rgba(255, 255, 255, 0.4);
+                    transition: transform 0.25s ease;
+
+                    &.expanded {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+
+        .card-body {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.25s ease;
+
+            &.expanded {
+                grid-template-rows: 1fr;
+            }
+
+            .card-body-inner {
+                overflow: hidden;
+
+                ul {
+                    margin: 0.75rem 0 0;
+                    padding-left: 1.25rem;
+
+                    li {
+                        font-size: 0.9rem;
+                        color: rgba(255, 255, 255, 0.8);
+                        line-height: 1.6;
+
+                        &:not(:last-child) {
+                            margin-bottom: 0.35rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.expanded .card-body {
+            grid-template-rows: 1fr;
+        }
+    }
+}
