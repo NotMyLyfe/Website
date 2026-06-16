@@ -20,6 +20,14 @@ interface ExperienceEntry {
 
 const workExperience: ExperienceEntry[] = [
     {
+        company: 'Cloudflare — R2',
+        role: 'Software Engineering Intern',
+        dates: 'May 2026 – Present',
+        bullets: [
+            'Building tooling to improve system observability and performance in Rust.',
+        ],
+    },
+    {
         company: 'Cerebras Systems',
         role: 'Inference Platform Intern',
         dates: 'Sep 2025 – Dec 2025',
