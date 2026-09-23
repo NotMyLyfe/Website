@@ -20,12 +20,16 @@ interface ExperienceEntry {
 
 const workExperience: ExperienceEntry[] = [
     {
+        company: 'Amazon Web Services — Transactional Services',
+        role: 'Software Development Engineer Intern',
+        dates: 'Sep 2026 - Present',
+        bullets: ['Building coordination and data distribution primitives on top of replicated logs.'],
+    },
+    {
         company: 'Cloudflare — R2',
         role: 'Software Engineering Intern',
-        dates: 'May 2026 – Present',
-        bullets: [
-            'Building tooling to improve system observability and performance in Rust.',
-        ],
+        dates: 'May 2026 – Aug 2026',
+        bullets: ["Built latency measurement tooling for R2 in Rust, measuring from outside Cloudflare's network."],
     },
     {
         company: 'Cerebras Systems',
@@ -34,10 +38,11 @@ const workExperience: ExperienceEntry[] = [
         bullets: [
             'Worked on job scheduling infrastructure for the inference platform.',
             'Built tooling for large-scale data ingestion with bounded memory usage.',
+            'Made builds reproducible across developer machines with hermetic toolchains.',
         ],
     },
     {
-        company: 'Amazon Web Services — DynamoDB, Transactional Services',
+        company: 'Amazon Web Services — Transactional Services',
         role: 'Software Development Engineer Intern',
         dates: 'May 2025 – Sep 2025',
         bullets: [
@@ -94,9 +99,7 @@ const volunteerExperience: ExperienceEntry[] = [
         company: 'University of Waterloo Mathematics Society',
         role: 'Photographer',
         dates: 'Sep 2022 – Apr 2026',
-        bullets: [
-            'Photographed MathSoc events, capturing community moments across the faculty.',
-        ],
+        bullets: ['Photographed MathSoc events, capturing community moments across the faculty.'],
     },
     {
         company: 'Hack the 6ix',
@@ -114,10 +117,7 @@ function ExperienceCard({ entry }: { entry: ExperienceEntry }): React.ReactEleme
     const [expanded, setExpanded] = React.useState(false);
 
     return (
-        <div
-            className={className({ 'experience-card': true, expanded })}
-            onClick={() => setExpanded((e) => !e)}
-        >
+        <div className={className({ 'experience-card': true, expanded })} onClick={() => setExpanded((e) => !e)}>
             <div className="experience-header">
                 <div className="experience-header-text">
                     <h3>{entry.company}</h3>
@@ -137,10 +137,7 @@ function ExperienceCard({ entry }: { entry: ExperienceEntry }): React.ReactEleme
                 <div className="experience-header-right">
                     <span className="experience-dates">{entry.dates}</span>
                     {entry.bullets.length > 0 && (
-                        <FontAwesomeIcon
-                            icon={faChevronDown}
-                            className={className({ chevron: true, expanded })}
-                        />
+                        <FontAwesomeIcon icon={faChevronDown} className={className({ chevron: true, expanded })} />
                     )}
                 </div>
             </div>
